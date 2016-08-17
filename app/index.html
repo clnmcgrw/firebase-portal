@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<title>Mag Portal</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+	<link rel="stylesheet" href="assets/css/app.css">
+
+	<style type="text/css">
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak { display: none !important; }
+  </style>
+
+</head>
+<body ng-app="magPortal" ng-cloak layout="column">
+
+<div ng-controller="shellCtrl">
+ 	
+	<md-toolbar layout="row" class="app-header">
+		<div class="md-toolbar-tools">
+
+			<div class="app-header--brand" flex="50">
+		  	<a href="#/home">Mag Portal</a>
+		  </div>
+		  
+		  <nav class="app-header--nav" flex="50" >
+	      <md-menu md-position-mode="target-right target" ng-show="loggedIn">
+	        <md-button aria-label="Open Menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+	          <md-icon md-svg-icon="assets/svg/more_vert.svg"></md-icon>
+	        </md-button>
+	        <md-menu-content width="4" >
+	          <md-menu-item>
+	            <md-button ui-sref="home"><span>Dashboard</span></md-button>
+	          </md-menu-item>
+	          <md-menu-item>
+	            <md-button ui-sref="account"><span>Manage Account</span></md-button>
+	          </md-menu-item>
+	          <md-menu-item>
+	            <md-button ng-click="doLogOut()">Log Out</md-button>
+	          </md-menu-item>
+	        </md-menu-content>
+	      </md-menu>
+			</nav>
+			
+		</div>
+	</md-toolbar>
+
+	<main ui-view></main>
+
+	<footer>
+		<div class="inner"></div>
+	</footer>
+
+	<div class="app-overlay" ng-show="isLoading">
+		<div class="app-overlay--liner"></div>
+	</div>
+
+</div>
+
+<script src="//www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+<script src="//cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+<script>
+  firebase.initializeApp({
+    apiKey: "AIzaSyC6McRaJsL-9l8yywzy6Byu0cB4B4TV_hg",
+    authDomain: "magnetic-creative.firebaseapp.com",
+    databaseURL: "https://magnetic-creative.firebaseio.com",
+    storageBucket: "magnetic-creative.appspot.com"
+  });
+</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

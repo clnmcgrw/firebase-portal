@@ -1,0 +1,134 @@
+
+<section class="view--home">
+	<div class="inner">
+		
+
+		<div class="vh-login" layout="row" layout-xs="column" ng-show="!user">
+			
+			<div class="vh-login--email" flex>
+
+				<md-tabs md-dynamic-height md-border-bottom>
+		      <md-tab label="Register">
+		        <md-content class="md-padding">
+			        <div class="vh-login--signup">
+			        	<div class="vh-login--title">
+									<h3>Create a New Account</h3>
+									<p>Need to register for an account?  Sign up here.</p>
+								</div>
+								<div ng-show="signupError">{{signupError}}</div>
+								<form name="signupForm" ng-submit="createUserByEmail()">
+									
+									<md-input-container md-has-error="signupError !== false" class="md-block">
+										<label>Email Address</label>
+						        <input required type="email" ng-pattern="/^.+@.+\..+$/" name="email" ng-model="signupEmail">
+						        <div ng-messages="signupForm.email.$error || signupError" role="alert">
+						          <div ng-message-exp="['required','pattern']">A Valid Email Address is Required</div>
+						          <div ng-message="signupError">{{signupError}}</div>
+						        </div>
+								  </md-input-container>
+
+								  <md-input-container class="md-block">
+										<label>Password</label>
+						        <input required type="password" name="password" ng-model="signupPassword">
+						        <div ng-messages="signupForm.password.$error">
+						          <div ng-message="required">A Password is Required</div>
+						        </div>
+								  </md-input-container>
+
+								  <md-input-container class="md-block" md-has-error="signupPassword !== signupPasswordVerify">
+										<label>Verify Password</label>
+						        <input required type="password" ng-pattern="{{signupPassword}}" name="passwordVerify" ng-model="signupPasswordVerify">
+						        <div ng-messages="signupForm.passwordVerify.$error">
+						        	<div ng-message="required">Verify Your Password</div>
+						        	<div ng-message="pattern">Make Sure That Your Passwords Match</div>
+						        </div>
+								  </md-input-container>
+		
+									<md-button type="submit" class="md-primary md-raised btn-lg has-icon-right" ng-disabled="!signupForm.$valid">
+									  <span>Create Account</span>
+									  <i class="fa fa-caret-right" aria-hidden="true"></i>
+								  </md-button>
+				
+								</form>
+							</div>
+		        </md-content>
+		      </md-tab>
+
+		      <md-tab label="Sign In">
+		        <md-content class="layout-padding">
+		        	<div class="vh-login--signin">
+								<div class="vh-login--title">
+									<h3>Sign In</h3>
+									<p>Already created an account?  Sign in here.</p>
+								</div>
+								<form name="signinForm" ng-submit="emailSignIn()">
+
+									<md-input-container class="md-block">
+										<label>Email Address</label>
+						        <input required type="email" ng-pattern="/^.+@.+\..+$/" name="email" ng-model="signinEmail">
+						        <div ng-messages="signinForm.email.$error" role="alert">
+						          <div ng-message-exp="['required','pattern']">A Valid Email Address is Required</div>
+						        </div>
+								  </md-input-container>
+
+								  <md-input-container class="md-block">
+										<label>Password</label>
+						        <input required type="password" name="password" ng-model="signinPassword">
+						        <div ng-messages="signinForm.password.$error">
+						          <div ng-message="required">A Password is Required</div>
+						        </div>
+								  </md-input-container>
+
+								  <md-button type="submit" class="md-primary btn-lg md-raised has-icon-right" ng-disabled="!signinForm.$valid">Log In <i class="fa fa-caret-right"></i></md-button>
+								</form>
+							</div>
+		        </md-content>
+		      </md-tab>
+
+		    </md-tabs>
+
+			</div>
+
+
+			<div class="vh-login--social" flex>
+				<div class="vh-login--social-liner md-padding">
+
+					<button ng-click="socialSignIn('google')">
+						<i class="fa fa-google" aria-hidden="true"></i> Sign In With Google
+					</button>
+					<button>
+						<i class="fa fa-twitter" aria-hidden="true"></i> Sign In With Twitter
+					</button>
+					
+				</div>
+			</div>
+
+		</div>
+
+		
+
+		<div class="vh-dashboard" ng-show="user">
+			
+			<p>Hello {{user.email}}, what would you like to do?</p>
+
+			<ul>
+				<li>
+					<a href="#/account">Manage My Account</a>
+				</li>
+				<li>
+					<a href="#/survey">
+						<span><i class="fa fa-paper"></i></span>
+						<span>Take the Stakeholder Survey</span>
+					</a>
+				</li>
+				<li>
+					<button ng-click="doLogOut()">Log Out</button>
+				</li>
+			</ul>
+
+		</div>
+
+
+		
+	</div>
+</section>

@@ -1,0 +1,135 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0; }
+
+.sr-only {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px); }
+
+@-webkit-keyframes pageOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-moz-keyframes pageOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes pageOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes pageIn {
+  0% {
+    -webkit-transform: translate3d(0, 40px, 0);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+@-moz-keyframes pageIn {
+  0% {
+    -moz-transform: translate3d(0, 40px, 0);
+    opacity: 0; }
+  100% {
+    -moz-transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+@keyframes pageIn {
+  0% {
+    -webkit-transform: translate3d(0, 40px, 0);
+    -moz-transform: translate3d(0, 40px, 0);
+    -ms-transform: translate3d(0, 40px, 0);
+    -o-transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 40px, 0);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1; } }
+
+.main-view {
+  width: 100%; }
+  .main-view.ng-enter, .main-view.ng-leave {
+    position: absolute; }
+
+.main-view.ng-enter {
+  -webkit-animation: pageIn 0.55s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-animation: pageIn 0.55s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: pageIn 0.55s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+.main-view.ng-leave {
+  -webkit-animation: pageOut 0.15s ease;
+  -moz-animation: pageOut 0.15s ease;
+  animation: pageOut 0.15s ease; }
+
+.md-button.btn-lg {
+  padding-right: 18px;
+  padding-left: 18px; }
+
+.md-button.has-icon-right i {
+  margin-left: 7px; }
+
+.app-header--brand a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 800; }
+
+.app-header--nav {
+  text-align: right; }
+
+#menu_container_0 .md-button {
+  position: relative; }
+  #menu_container_0 .md-button a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none; }
+
+.view--home .inner {
+  max-width: 55em;
+  margin: 3em auto; }
+  .view--home .inner::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.vh-login {
+  background: #fff;
+  padding-bottom: 2em;
+  border: 1px solid rgba(0, 0, 0, 0.12); }
+  .vh-login .md-button {
+    margin-left: 0; }
+
+.vh-login--title {
+  padding-bottom: 1em; }
+  .vh-login--title h3 {
+    margin-top: 0; }
+
+.app-overlay {
+  position: fixed;
+  z-index: 1999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); }
+
+/*# sourceMappingURL=app.css.map */

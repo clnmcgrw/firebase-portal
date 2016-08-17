@@ -1,0 +1,52 @@
+
+*,*:before,*:after {
+	@include box-sizing(border-box);
+	margin: 0;
+}
+
+
+.sr-only {
+	@include sr-only();
+}
+
+
+
+@include keyframes(pageOut) {
+	0% {
+		opacity:1;
+	}
+	100% {
+		opacity:0;
+	}
+}
+@include keyframes(pageIn) {
+	0% {
+		@include transform(translate3d(0,40px,0));
+		opacity:0;
+	}
+	100% {
+		@include transform(translate3d(0,0,0));
+		opacity:1;
+	}
+}
+
+
+.main-view {
+	width: 100%;
+	&.ng-enter, &.ng-leave {
+		 position: absolute;
+	}
+}
+
+
+.main-view.ng-enter { 
+  @include animation(pageIn 0.55s $ease-out-circ);
+}
+.main-view.ng-leave { 
+  @include animation(pageOut 0.15s ease);
+}
+
+
+
+
+

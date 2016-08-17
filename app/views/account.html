@@ -1,0 +1,43 @@
+
+
+<section class="view--account">
+	<div class="inner">
+
+		<div layout="row" layout-xs="column" class="md-padding">
+			
+			<div class="va-profile--view" flex>
+				<h4>Account Details:</h4>
+				<p>{{user.email}}</p>
+				<p>{{user.uid}}</p>
+
+				<input type="text" ng-model="profile.username">
+				<input type="text" ng-model="profile.fullname">
+			</div>
+
+			<div class="vs-profile--edit" flex>
+				<form name="profileForm">
+
+					<md-input-container class="md-block">
+						<label>Username</label>
+		        <input required type="text" min-length="3" max-length="15" name="username" ng-model="profile.username">
+		        <div ng-messages="profileForm.username.$error" role="alert">
+		          <div ng-message="required">Enter a user name</div>
+		        </div>
+				  </md-input-container>
+
+				  <md-input-container class="md-block">
+						<label>Full Name</label>
+		        <input required type="text" name="email" ng-model="profile.fullname">
+		        <div ng-messages="profileForm.fullname.$error" role="alert">
+		          <div ng-message="required">Enter your actual full name</div>
+		        </div>
+				  </md-input-container>
+
+
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+</section>

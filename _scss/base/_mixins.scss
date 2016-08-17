@@ -1,0 +1,33 @@
+
+
+
+//utils
+@mixin box-sizing($size) {
+	@include prefixer(box-sizing, $size, webkit moz spec);
+}
+@mixin background-size($size) {
+	@include prefixer(background-size, $size, webkit moz spec);
+}
+@mixin border-radius($size) {
+	@include prefixer(border-radius, $size, webkit moz spec);
+}
+@mixin box-shadow($size) {
+	@include prefixer(box-shadow, $size, webkit moz spec);
+}
+@mixin text-shadow($size) {
+	@include prefixer(text-shadow, $size, webkit moz spec);
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); 
+}
+
+@mixin sr-only() {
+	position: absolute !important;
+  height: 1px; width: 1px; 
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}

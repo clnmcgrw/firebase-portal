@@ -1,0 +1,25 @@
+{
+  "name": "mag-portal",
+  "description": "Firebase client for Magnetic apps.",
+  "main": "index.js",
+  "authors": [
+    "Colin McGraw <colinmcgraw@me.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "~4.2.6",
+    "neat": "~1.7.2",
+    "bitters": "~1.2.0",
+    "dropzone": "~4.3.0"
+  }
+}
